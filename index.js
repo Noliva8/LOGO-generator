@@ -13,7 +13,9 @@ const questions = [
                 return "Please enter up to 3 characters.";
             }
             return true;
+            console.log(answer);
         }
+
     },
     {
         type: "input",
@@ -24,6 +26,8 @@ const questions = [
                 return "Please enter a valid color keyword or hexadecimal number.";
             }
             return true;
+         
+            
         }
     },
 
@@ -37,7 +41,7 @@ const questions = [
 
     {
         type: "input",
-        name: 'color',
+        name: 'shapeColor',
         message: 'Please enter a color keyword (OR a hexadecimal number) for the shape of your logo',
         validate: (answer) => {
             if (!isColorName(answer) && !isHexadecimalValid(answer)) {
@@ -48,12 +52,16 @@ const questions = [
     }
 ];
 
+
+
 // Prompt user and handle answers
 
 inquirer.prompt(questions)
     .then(answers => {
-        console.log('Logo Text:', answers.text);
-        console.log('Color entered:', answers.color);
+        console.log(answers.text);
+        console.log(answers.color);
+        console.log(answers.shapeColor);
+        console.log(answers.shape);
     })
     .catch(error => {
         console.error('Error occurred:', error);
